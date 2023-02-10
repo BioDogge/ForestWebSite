@@ -1,0 +1,10 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "gsap@3.11.4",
+      "destination": "wwwroot/lib/gsap/"
+    }
+  ]
+}

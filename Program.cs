@@ -1,3 +1,6 @@
+using ForestWebSite.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace ForestWebSite
 {
 	public class Program
@@ -6,12 +9,15 @@ namespace ForestWebSite
 		{
 			var builder = WebApplication.CreateBuilder(args);
 
-			// Add services to the container.
 			builder.Services.AddControllersWithViews();
+
+			builder.Services.AddDbContext<AppDbContext>(opts =>
+				opts.UseInMemoryDatabase("InMemoryForestDB"));
+
+			builder.Services.AddScoped<ICustomerRepo, CustomerRepo>();
 
 			var app = builder.Build();
 
-			// Configure the HTTP request pipeline.
 			if (!app.Environment.IsDevelopment())
 			{
 				app.UseExceptionHandler("/Home/Error");
@@ -19,8 +25,6 @@ namespace ForestWebSite
 			app.UseStaticFiles();
 
 			app.UseRouting();
-
-			app.UseAuthorization();
 
 			app.MapDefaultControllerRoute();
 

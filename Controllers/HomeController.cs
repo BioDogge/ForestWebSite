@@ -1,20 +1,32 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ForestWebSite.Data;
+using ForestWebSite.Models;
+using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
 namespace ForestWebSite.Controllers
 {
 	public class HomeController : Controller
 	{
-		private readonly ILogger<HomeController> _logger;
+		private readonly ICustomerRepo _repository;
 
-		public HomeController(ILogger<HomeController> logger)
+		public HomeController(ICustomerRepo repo)
 		{
-			_logger = logger;
+			_repository = repo;
 		}
 
+		[HttpGet]
 		public IActionResult Index()
 		{
 			return View();
+		}
+
+		[HttpPost]
+		public IActionResult AddCustomer(Customer customer)
+		{
+			_repository.CreateCustomer(customer);
+			_repository.SaveChanges();
+
+			return RedirectToAction("Index");
 		}
 	}
 }

@@ -139,3 +139,41 @@ body {
 .container {
     will-change: transform;
 }
+
+.main-article__input {
+    height: calc(var(--index) * 1.7);
+    padding: 8px;
+    margin: 10px;
+    border: 0;
+    box-shadow: 0 0 10px 2px #fdfcda;
+    border-radius: 15px;
+    background-color: rgba(234, 232, 207, 0.8);
+    font-size: calc(var(--index) * 0.65);
+    letter-spacing: calc(var(--index) / 8.2);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    outline: none;
+}
+
+.main-article__form {
+    margin-top: calc(var(--index) * 1);
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    width: calc(var(--index) * 20);
+    will-change: transform;
+    transform: var(--main-article-transform);
+    transition: var(--transition);
+}
+
+.main-article__button {
+    height: calc(var(--index) * 1.7);
+    margin: 10px;
+    border: 0;
+    box-shadow: 0 0 5px 1px #fdfcda;
+    border-radius: 15px;
+    background-color: rgb(238, 223, 169);
+    font-size: calc(var(--index) * 0.65);
+    text-transform: uppercase;
+    letter-spacing: calc(var(--index) / 6.5);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}

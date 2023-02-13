@@ -1,5 +1,7 @@
 ﻿@model Customer
 
+<partial name="_Notification" />
+
 <header class="main-header">
 	<div class="layers">
 		<div class="layer__header">
@@ -35,3 +37,7 @@
 		</form>
 	</div>
 </article>
+
+@*@section Scripts{
+	<partial name="_ValidationScriptsPartial" />
+}*@

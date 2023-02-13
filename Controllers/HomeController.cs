@@ -25,6 +25,7 @@ namespace ForestWebSite.Controllers
 		{
 			_repository.CreateCustomer(customer);
 			_repository.SaveChanges();
+			TempData["success"] = "Your contact information have added. Wait our call (⁠ꈍ⁠ᴗ⁠ꈍ⁠)";
 
 			return RedirectToAction("Index");
 		}

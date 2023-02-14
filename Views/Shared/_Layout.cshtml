@@ -17,5 +17,7 @@
 			@RenderBody()
 		</div>
 	</section>
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	@await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

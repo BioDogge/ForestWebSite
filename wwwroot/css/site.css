@@ -152,6 +152,7 @@ body {
     letter-spacing: calc(var(--index) / 8.2);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     outline: none;
+    text-align: center;
 }
 
 .main-article__form {

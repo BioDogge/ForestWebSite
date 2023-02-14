@@ -27,10 +27,15 @@ namespace ForestWebSite.Controllers
 		[HttpPost]
 		public IActionResult AddCustomer(CustomerCreateDto customerCreateDto)
 		{
-			var customerModel = _mapper.Map<Customer>(customerCreateDto);
-			_repository.CreateCustomer(customerModel);
-			_repository.SaveChanges();
-			TempData["success"] = "Your contact information have added. Wait our call (⁠ꈍ⁠ᴗ⁠ꈍ⁠)";
+			if (ModelState.IsValid)
+			{
+				var customerModel = _mapper.Map<Customer>(customerCreateDto);
+				_repository.CreateCustomer(customerModel);
+				_repository.SaveChanges();
+				TempData["success"] = "Your contact information have added. Wait our call (⁠ꈍ⁠ᴗ⁠ꈍ⁠)";
+			}
+			else
+				TempData["error"] = "Something is wrong (⁠-⁠_⁠-⁠メ⁠)";
 
 			return RedirectToAction("Index");
 		}

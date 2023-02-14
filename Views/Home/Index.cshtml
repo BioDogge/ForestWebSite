@@ -29,15 +29,20 @@
 
 		<form method="post" asp-action="AddCustomer">
 			<div class="main-article__form">
-				<input asp-for="Name" class="main-article__input" />
-				<input asp-for="Phone" class="main-article__input" />
-				<input asp-for="Email" class="main-article__input" />
-				<button type="submit" class="main-article__button">Send</button>
+				<input type="text" asp-for="Name" class="main-article__input" style="text-align: center" />
+				<span asp-validation-for="Name"></span>
+				<input asp-for="Phone" class="main-article__input" style="text-align: center" />
+				<span asp-validation-for="Phone"></span>
+				<input type="email" asp-for="Email" class="main-article__input" style="text-align: center" />
+				<span asp-validation-for="Email"></span>
+				<button type="submit" class="main-article__button" style="width: 50%; align-self: center;">
+					Send
+				</button>
 			</div>
 		</form>
 	</div>
 </article>
 
-@*@section Scripts{
+@section Scripts{
 	<partial name="_ValidationScriptsPartial" />
-}*@
+}

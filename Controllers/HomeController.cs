@@ -1,4 +1,6 @@
-﻿using ForestWebSite.Data;
+﻿using AutoMapper;
+using ForestWebSite.Data;
+using ForestWebSite.Dtos;
 using ForestWebSite.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -8,10 +10,12 @@ namespace ForestWebSite.Controllers
 	public class HomeController : Controller
 	{
 		private readonly ICustomerRepo _repository;
+		private readonly IMapper _mapper;
 
-		public HomeController(ICustomerRepo repo)
+		public HomeController(ICustomerRepo repo, IMapper mapper)
 		{
 			_repository = repo;
+			_mapper = mapper;
 		}
 
 		[HttpGet]
@@ -21,9 +25,10 @@ namespace ForestWebSite.Controllers
 		}
 
 		[HttpPost]
-		public IActionResult AddCustomer(Customer customer)
+		public IActionResult AddCustomer(CustomerCreateDto customerCreateDto)
 		{
-			_repository.CreateCustomer(customer);
+			var customerModel = _mapper.Map<Customer>(customerCreateDto);
+			_repository.CreateCustomer(customerModel);
 			_repository.SaveChanges();
 			TempData["success"] = "Your contact information have added. Wait our call (⁠ꈍ⁠ᴗ⁠ꈍ⁠)";
 

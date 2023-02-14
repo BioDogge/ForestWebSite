@@ -15,6 +15,7 @@ namespace ForestWebSite
 				opts.UseInMemoryDatabase("InMemoryForestDB"));
 
 			builder.Services.AddScoped<ICustomerRepo, CustomerRepo>();
+			builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 			var app = builder.Build();
 

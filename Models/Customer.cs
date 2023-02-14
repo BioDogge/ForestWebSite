@@ -18,6 +18,6 @@ namespace ForestWebSite.Models
 		//[RegularExpression(@"(\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*)", ErrorMessage = "Email address is incorrect")]
 		public string Email { get; set; } = string.Empty;
 
-		public DateTime CreatedDateTime { get; set; } = DateTime.Now;
+		public DateTime CreatedDateTime { get; set; }
 	}
 }

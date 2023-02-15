@@ -24,16 +24,16 @@
 			Feedback form
 		</h2>
 		<p class="main-article__paragraph">
-			Leave your contacts information and we'll call you
+			Leave your contact information and we'll call you
 		</p>
 
 		<form method="post" asp-action="AddCustomer">
 			<div class="main-article__form">
-				<input type="text" asp-for="Name" class="main-article__input" style="text-align: center" />
+				<input type="text" placeholder="(⁠☞⁠^o^)⁠⁠☞ Name" asp-for="Name" class="main-article__input" style="text-align: center" />
 				<span asp-validation-for="Name"></span>
-				<input asp-for="Phone" class="main-article__input" style="text-align: center" />
+				<input asp-for="Phone" placeholder="ᕙ⁠(⁠⇀⁠‸⁠↼⁠‶⁠)⁠ᕗ Phone number" class="main-article__input" style="text-align: center" />
 				<span asp-validation-for="Phone"></span>
-				<input type="email" asp-for="Email" class="main-article__input" style="text-align: center" />
+				<input type="email" asp-for="Email" placeholder="(ノ^_^)ノ Email" class="main-article__input" style="text-align: center" />
 				<span asp-validation-for="Email"></span>
 				<button type="submit" class="main-article__button" style="width: 50%; align-self: center;">
 					Send

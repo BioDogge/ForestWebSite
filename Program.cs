@@ -12,7 +12,7 @@ namespace ForestWebSite
 			builder.Services.AddControllersWithViews();
 
 			builder.Services.AddDbContext<AppDbContext>(opts =>
-				opts.UseInMemoryDatabase("InMemoryForestDB"));
+			opts.UseSqlServer(builder.Configuration.GetConnectionString("ForestWebSiteConnection")));
 
 			builder.Services.AddScoped<ICustomerRepo, CustomerRepo>();
 			builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
@@ -23,6 +23,7 @@ namespace ForestWebSite
 			{
 				app.UseExceptionHandler("/Home/Error");
 			}
+
 			app.UseStaticFiles();
 
 			app.UseRouting();

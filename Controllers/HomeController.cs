@@ -25,6 +25,7 @@ namespace ForestWebSite.Controllers
 		}
 
 		[HttpPost]
+		[ValidateAntiForgeryToken]
 		public IActionResult AddCustomer(CustomerCreateDto customerCreateDto)
 		{
 			if (ModelState.IsValid)
